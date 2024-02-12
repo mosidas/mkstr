@@ -8,7 +8,7 @@ import (
 )
 
 func RandomString(n int) (string, error) {
-	const letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()"
+	const letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789~!@#$%^&*()_+'}{'[]\\?:\";',./=-"
 	var result string
 	for i := 0; i < n; i++ {
 		num, err := rand.Int(rand.Reader, big.NewInt(int64(len(letters))))
@@ -22,12 +22,12 @@ func RandomString(n int) (string, error) {
 
 func main() {
 	var (
-		l = flag.Int("l", 10, "length")
+		length = flag.Int("l", 10, "length")
 	)
 
 	flag.Parse()
 
-	str, err := RandomString(*l)
+	str, err := RandomString(*length)
 	if err != nil {
 		panic(err)
 	}
